@@ -1,6 +1,6 @@
 ﻿namespace SerialDataGrab
 {
-    partial class Form1
+    partial class SerialDataGrab
     {
         /// <summary>
         /// Required designer variable.
@@ -175,7 +175,7 @@
             this.openConnectionButton.UseVisualStyleBackColor = true;
             this.openConnectionButton.Click += new System.EventHandler(this.openConnectionButton_Click);
             // 
-            // Form1
+            // SerialDataGrab
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -193,8 +193,8 @@
             this.Controls.Add(this.baudRateLabel);
             this.Controls.Add(this.comPortLabel);
             this.Controls.Add(this.comPortComboBox);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Name = "SerialDataGrab";
+            this.Text = "Serial Data Grab";
             ((System.ComponentModel.ISupportInitialize)(this.baudRateUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataBitsUpDown)).EndInit();
             this.ResumeLayout(false);

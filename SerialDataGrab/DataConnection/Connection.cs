@@ -64,6 +64,11 @@ namespace SerialDataGrab.DataConnection
                 " | Sbits: " + serialPort.StopBits.ToString() + " | H: " + serialPort.Handshake.ToString();
         }
 
+        /// <summary>
+        /// When the serial connection receives data, this function is run.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void DataReceivedHandler(object sender, SerialDataReceivedEventArgs e)
         {
             try
@@ -75,9 +80,10 @@ namespace SerialDataGrab.DataConnection
                 string rawdata = "";
                 foreach (Byte b in buf)
                 {
-                    rawdata += "\'" + b.ToString() + "\'";
+                    rawdata += "" + b.ToString() + ", ";
                 }
-                MessageBox.Show("Raw bytes received: " + rawdata, "Data Received");
+                String utf8 = Encoding.UTF8.GetString(buf, 0, buf.Length);
+                MessageBox.Show("Raw bytes received: " + rawdata + "\n\nConverted to UTF8: " + utf8, "Data Received");
             }
             catch (Exception dataReceivedException)
             {

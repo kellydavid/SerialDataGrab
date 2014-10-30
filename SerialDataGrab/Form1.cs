@@ -10,11 +10,11 @@ using System.IO.Ports;
 
 namespace SerialDataGrab
 {
-    public partial class Form1 : Form
+    public partial class SerialDataGrab : Form
     {
         DataConnection.Connection serialCon;
 
-        public Form1()
+        public SerialDataGrab()
         {
             InitializeComponent();
             initialiseSettingsValues();
