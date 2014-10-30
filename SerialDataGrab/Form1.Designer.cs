@@ -41,14 +41,21 @@
             this.handshakeLabel = new System.Windows.Forms.Label();
             this.handshakeComboBox = new System.Windows.Forms.ComboBox();
             this.openConnectionButton = new System.Windows.Forms.Button();
+            this.serialConGroupBox = new System.Windows.Forms.GroupBox();
+            this.logFileGroupBox = new System.Windows.Forms.GroupBox();
+            this.selectFileLocationButton = new System.Windows.Forms.Button();
+            this.saveLocationLabel = new System.Windows.Forms.Label();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.baudRateUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataBitsUpDown)).BeginInit();
+            this.serialConGroupBox.SuspendLayout();
+            this.logFileGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // comPortComboBox
             // 
             this.comPortComboBox.FormattingEnabled = true;
-            this.comPortComboBox.Location = new System.Drawing.Point(105, 38);
+            this.comPortComboBox.Location = new System.Drawing.Point(97, 25);
             this.comPortComboBox.Name = "comPortComboBox";
             this.comPortComboBox.Size = new System.Drawing.Size(121, 21);
             this.comPortComboBox.TabIndex = 0;
@@ -56,7 +63,7 @@
             // comPortLabel
             // 
             this.comPortLabel.AutoSize = true;
-            this.comPortLabel.Location = new System.Drawing.Point(28, 41);
+            this.comPortLabel.Location = new System.Drawing.Point(20, 28);
             this.comPortLabel.Name = "comPortLabel";
             this.comPortLabel.Size = new System.Drawing.Size(53, 13);
             this.comPortLabel.TabIndex = 1;
@@ -65,7 +72,7 @@
             // baudRateLabel
             // 
             this.baudRateLabel.AutoSize = true;
-            this.baudRateLabel.Location = new System.Drawing.Point(28, 83);
+            this.baudRateLabel.Location = new System.Drawing.Point(20, 70);
             this.baudRateLabel.Name = "baudRateLabel";
             this.baudRateLabel.Size = new System.Drawing.Size(61, 13);
             this.baudRateLabel.TabIndex = 2;
@@ -73,7 +80,7 @@
             // 
             // baudRateUpDown
             // 
-            this.baudRateUpDown.Location = new System.Drawing.Point(106, 76);
+            this.baudRateUpDown.Location = new System.Drawing.Point(98, 63);
             this.baudRateUpDown.Maximum = new decimal(new int[] {
             115200,
             0,
@@ -86,7 +93,7 @@
             // parityTypeLabel
             // 
             this.parityTypeLabel.AutoSize = true;
-            this.parityTypeLabel.Location = new System.Drawing.Point(28, 119);
+            this.parityTypeLabel.Location = new System.Drawing.Point(20, 106);
             this.parityTypeLabel.Name = "parityTypeLabel";
             this.parityTypeLabel.Size = new System.Drawing.Size(63, 13);
             this.parityTypeLabel.TabIndex = 4;
@@ -95,7 +102,7 @@
             // parityTypeComboBox
             // 
             this.parityTypeComboBox.FormattingEnabled = true;
-            this.parityTypeComboBox.Location = new System.Drawing.Point(105, 116);
+            this.parityTypeComboBox.Location = new System.Drawing.Point(97, 103);
             this.parityTypeComboBox.Name = "parityTypeComboBox";
             this.parityTypeComboBox.Size = new System.Drawing.Size(121, 21);
             this.parityTypeComboBox.TabIndex = 5;
@@ -103,7 +110,7 @@
             // dataBitsLabel
             // 
             this.dataBitsLabel.AutoSize = true;
-            this.dataBitsLabel.Location = new System.Drawing.Point(28, 161);
+            this.dataBitsLabel.Location = new System.Drawing.Point(20, 148);
             this.dataBitsLabel.Name = "dataBitsLabel";
             this.dataBitsLabel.Size = new System.Drawing.Size(53, 13);
             this.dataBitsLabel.TabIndex = 6;
@@ -111,7 +118,7 @@
             // 
             // dataBitsUpDown
             // 
-            this.dataBitsUpDown.Location = new System.Drawing.Point(105, 159);
+            this.dataBitsUpDown.Location = new System.Drawing.Point(97, 146);
             this.dataBitsUpDown.Maximum = new decimal(new int[] {
             8,
             0,
@@ -134,7 +141,7 @@
             // stopBitsLabel
             // 
             this.stopBitsLabel.AutoSize = true;
-            this.stopBitsLabel.Location = new System.Drawing.Point(28, 205);
+            this.stopBitsLabel.Location = new System.Drawing.Point(20, 192);
             this.stopBitsLabel.Name = "stopBitsLabel";
             this.stopBitsLabel.Size = new System.Drawing.Size(52, 13);
             this.stopBitsLabel.TabIndex = 8;
@@ -143,7 +150,7 @@
             // stopBitsComboBox
             // 
             this.stopBitsComboBox.FormattingEnabled = true;
-            this.stopBitsComboBox.Location = new System.Drawing.Point(104, 197);
+            this.stopBitsComboBox.Location = new System.Drawing.Point(96, 184);
             this.stopBitsComboBox.Name = "stopBitsComboBox";
             this.stopBitsComboBox.Size = new System.Drawing.Size(121, 21);
             this.stopBitsComboBox.TabIndex = 9;
@@ -151,7 +158,7 @@
             // handshakeLabel
             // 
             this.handshakeLabel.AutoSize = true;
-            this.handshakeLabel.Location = new System.Drawing.Point(28, 236);
+            this.handshakeLabel.Location = new System.Drawing.Point(20, 223);
             this.handshakeLabel.Name = "handshakeLabel";
             this.handshakeLabel.Size = new System.Drawing.Size(65, 13);
             this.handshakeLabel.TabIndex = 10;
@@ -160,14 +167,14 @@
             // handshakeComboBox
             // 
             this.handshakeComboBox.FormattingEnabled = true;
-            this.handshakeComboBox.Location = new System.Drawing.Point(104, 236);
+            this.handshakeComboBox.Location = new System.Drawing.Point(96, 223);
             this.handshakeComboBox.Name = "handshakeComboBox";
             this.handshakeComboBox.Size = new System.Drawing.Size(121, 21);
             this.handshakeComboBox.TabIndex = 11;
             // 
             // openConnectionButton
             // 
-            this.openConnectionButton.Location = new System.Drawing.Point(73, 286);
+            this.openConnectionButton.Location = new System.Drawing.Point(58, 259);
             this.openConnectionButton.Name = "openConnectionButton";
             this.openConnectionButton.Size = new System.Drawing.Size(98, 23);
             this.openConnectionButton.TabIndex = 12;
@@ -175,30 +182,74 @@
             this.openConnectionButton.UseVisualStyleBackColor = true;
             this.openConnectionButton.Click += new System.EventHandler(this.openConnectionButton_Click);
             // 
+            // serialConGroupBox
+            // 
+            this.serialConGroupBox.Controls.Add(this.comPortLabel);
+            this.serialConGroupBox.Controls.Add(this.openConnectionButton);
+            this.serialConGroupBox.Controls.Add(this.comPortComboBox);
+            this.serialConGroupBox.Controls.Add(this.handshakeComboBox);
+            this.serialConGroupBox.Controls.Add(this.baudRateLabel);
+            this.serialConGroupBox.Controls.Add(this.handshakeLabel);
+            this.serialConGroupBox.Controls.Add(this.baudRateUpDown);
+            this.serialConGroupBox.Controls.Add(this.stopBitsComboBox);
+            this.serialConGroupBox.Controls.Add(this.parityTypeLabel);
+            this.serialConGroupBox.Controls.Add(this.stopBitsLabel);
+            this.serialConGroupBox.Controls.Add(this.parityTypeComboBox);
+            this.serialConGroupBox.Controls.Add(this.dataBitsUpDown);
+            this.serialConGroupBox.Controls.Add(this.dataBitsLabel);
+            this.serialConGroupBox.Location = new System.Drawing.Point(12, 12);
+            this.serialConGroupBox.Name = "serialConGroupBox";
+            this.serialConGroupBox.Size = new System.Drawing.Size(228, 297);
+            this.serialConGroupBox.TabIndex = 13;
+            this.serialConGroupBox.TabStop = false;
+            this.serialConGroupBox.Text = "Serial Connection";
+            // 
+            // logFileGroupBox
+            // 
+            this.logFileGroupBox.Controls.Add(this.saveLocationLabel);
+            this.logFileGroupBox.Controls.Add(this.selectFileLocationButton);
+            this.logFileGroupBox.Location = new System.Drawing.Point(273, 12);
+            this.logFileGroupBox.Name = "logFileGroupBox";
+            this.logFileGroupBox.Size = new System.Drawing.Size(329, 166);
+            this.logFileGroupBox.TabIndex = 14;
+            this.logFileGroupBox.TabStop = false;
+            this.logFileGroupBox.Text = "Log File";
+            // 
+            // selectFileLocationButton
+            // 
+            this.selectFileLocationButton.Location = new System.Drawing.Point(52, 28);
+            this.selectFileLocationButton.Name = "selectFileLocationButton";
+            this.selectFileLocationButton.Size = new System.Drawing.Size(143, 23);
+            this.selectFileLocationButton.TabIndex = 0;
+            this.selectFileLocationButton.Text = "Select File Location";
+            this.selectFileLocationButton.UseVisualStyleBackColor = true;
+            this.selectFileLocationButton.Click += new System.EventHandler(this.selectFileLocationButton_Click);
+            // 
+            // saveLocationLabel
+            // 
+            this.saveLocationLabel.AutoSize = true;
+            this.saveLocationLabel.Location = new System.Drawing.Point(6, 70);
+            this.saveLocationLabel.Name = "saveLocationLabel";
+            this.saveLocationLabel.Size = new System.Drawing.Size(82, 13);
+            this.saveLocationLabel.TabIndex = 1;
+            this.saveLocationLabel.Text = "Save Location: ";
+            // 
             // SerialDataGrab
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(250, 321);
-            this.Controls.Add(this.openConnectionButton);
-            this.Controls.Add(this.handshakeComboBox);
-            this.Controls.Add(this.handshakeLabel);
-            this.Controls.Add(this.stopBitsComboBox);
-            this.Controls.Add(this.stopBitsLabel);
-            this.Controls.Add(this.dataBitsUpDown);
-            this.Controls.Add(this.dataBitsLabel);
-            this.Controls.Add(this.parityTypeComboBox);
-            this.Controls.Add(this.parityTypeLabel);
-            this.Controls.Add(this.baudRateUpDown);
-            this.Controls.Add(this.baudRateLabel);
-            this.Controls.Add(this.comPortLabel);
-            this.Controls.Add(this.comPortComboBox);
+            this.ClientSize = new System.Drawing.Size(614, 317);
+            this.Controls.Add(this.logFileGroupBox);
+            this.Controls.Add(this.serialConGroupBox);
             this.Name = "SerialDataGrab";
             this.Text = "Serial Data Grab";
             ((System.ComponentModel.ISupportInitialize)(this.baudRateUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataBitsUpDown)).EndInit();
+            this.serialConGroupBox.ResumeLayout(false);
+            this.serialConGroupBox.PerformLayout();
+            this.logFileGroupBox.ResumeLayout(false);
+            this.logFileGroupBox.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -217,6 +268,11 @@
         private System.Windows.Forms.Label handshakeLabel;
         private System.Windows.Forms.ComboBox handshakeComboBox;
         private System.Windows.Forms.Button openConnectionButton;
+        private System.Windows.Forms.GroupBox serialConGroupBox;
+        private System.Windows.Forms.GroupBox logFileGroupBox;
+        private System.Windows.Forms.Label saveLocationLabel;
+        private System.Windows.Forms.Button selectFileLocationButton;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
     }
 }
 

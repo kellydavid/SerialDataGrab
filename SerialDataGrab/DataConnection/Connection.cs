@@ -21,9 +21,11 @@ namespace SerialDataGrab.DataConnection
         private Handshake _handshakeType;
 
         private SerialPort serialPort = null;
+        private LogFile logFile = null;
 
-        public Connection(String comPort, int baudRate, Parity parityType, int dataBits, 
-                                        StopBits stopBits, Handshake handshakeType) {
+        public Connection(String comPort, int baudRate, Parity parityType, int dataBits,
+                                        StopBits stopBits, Handshake handshakeType)
+        {
             _comPort = comPort;
             _baudRate = baudRate;
             _parityType = parityType;
@@ -36,7 +38,8 @@ namespace SerialDataGrab.DataConnection
         /// <summary>
         /// Creates and opens a new serial connection.
         /// </summary>
-        private void createNewConnection(){
+        private void createNewConnection()
+        {
             try
             {
                 serialPort = new SerialPort();
@@ -49,7 +52,8 @@ namespace SerialDataGrab.DataConnection
                 serialPort.DataReceived += DataReceivedHandler;
                 serialPort.Open();
             }
-            catch (Exception e) {
+            catch (Exception e)
+            {
                 System.Windows.Forms.MessageBox.Show("Exception occurred creating serial connection.", e.Message);
             }
         }
@@ -84,11 +88,29 @@ namespace SerialDataGrab.DataConnection
                 }
                 String utf8 = Encoding.UTF8.GetString(buf, 0, buf.Length);
                 MessageBox.Show("Raw bytes received: " + rawdata + "\n\nConverted to UTF8: " + utf8, "Data Received");
+                logFile.writeLineToFile("Raw bytes received: " + rawdata);
+                logFile.writeLineToFile("Converted to UTF8:");
+                logFile.writeLineToFile("");
+                logFile.writeStringToFile(utf8);
+                logFile.writeLineToFile("");
             }
             catch (Exception dataReceivedException)
             {
                 MessageBox.Show("shite\n" + dataReceivedException.ToString());
             }
         }
+
+        /// <summary>
+        /// Pass a reference to the log file so the serial connection can log its output into it.
+        /// </summary>
+        /// <param name="logFile"></param>
+        public void setLogFile(LogFile logFile)
+        {
+            this.logFile = logFile;
+            logFile.writeLineToFile("Serial Connection Settings:");
+            logFile.writeLineToFile(this.getConnectionInfo());
+            logFile.writeLineToFile("");
+        }
+
     }
 }

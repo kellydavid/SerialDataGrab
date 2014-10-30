@@ -13,11 +13,14 @@ namespace SerialDataGrab
     public partial class SerialDataGrab : Form
     {
         DataConnection.Connection serialCon;
+        LogFile logFile;
 
         public SerialDataGrab()
         {
             InitializeComponent();
             initialiseSettingsValues();
+            serialConGroupBox.Enabled = false;
+            logFileGroupBox.Enabled = true;
         }
 
         // Set Form Field Values.
@@ -90,9 +93,25 @@ namespace SerialDataGrab
                 StopBits stopBits = getStopBits();
                 Handshake handshake = getHandshake();
                 serialCon = new DataConnection.Connection(comPort, baudRate, parity, dataBits, stopBits, handshake);
+                serialCon.setLogFile(logFile);
             }
             catch (Exception exception) {
                 MessageBox.Show("Make sure the form is filled out correctly.\n\n" + exception.Message, "Error!");
+            }
+        }
+
+        private void selectFileLocationButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                logFile = new LogFile(saveFileDialog1);
+                saveLocationLabel.Text += logFile.fileLocation;
+                serialConGroupBox.Enabled = true;
+                logFileGroupBox.Enabled = false;
+            }
+            catch (Exception exception) {
+                MessageBox.Show("Problem trying to select save file location.\n\n" +
+                                    exception.Message, "Problem selecting save file location.");
             }
         }    
         
