@@ -18,8 +18,6 @@ namespace SerialDataGrab
             if(saveFileResult != DialogResult.OK)
                 throw new Exception("Could not select log file location.");
             fileLocation = saveFileDialog.FileName;
-            if (!File.Exists(fileLocation))
-                File.Create(fileLocation);
             writeLineToFile("");
             writeLineToFile("");
             writeLineToFile("--------------------------------------------------------");

@@ -90,7 +90,6 @@ namespace SerialDataGrab.DataConnection
                 MessageBox.Show("Raw bytes received: " + rawdata + "\n\nConverted to UTF8: " + utf8, "Data Received");
                 logFile.writeLineToFile("Raw bytes received: " + rawdata);
                 logFile.writeLineToFile("Converted to UTF8:");
-                logFile.writeLineToFile("");
                 logFile.writeStringToFile(utf8);
                 logFile.writeLineToFile("");
             }

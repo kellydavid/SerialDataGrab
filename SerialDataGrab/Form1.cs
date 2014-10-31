@@ -94,6 +94,7 @@ namespace SerialDataGrab
                 Handshake handshake = getHandshake();
                 serialCon = new DataConnection.Connection(comPort, baudRate, parity, dataBits, stopBits, handshake);
                 serialCon.setLogFile(logFile);
+                openConnectionButton.Enabled = false;
             }
             catch (Exception exception) {
                 MessageBox.Show("Make sure the form is filled out correctly.\n\n" + exception.Message, "Error!");
