@@ -50,7 +50,11 @@ namespace SerialDataGrab.DataConnection
                 serialPort.StopBits = _stopBits;
                 serialPort.Handshake = _handshakeType;
                 serialPort.DataReceived += DataReceivedHandler;
+                serialPort.ReceivedBytesThreshold = RECEIVED_BYTES_THRESHOLD;
+                serialPort.ReadTimeout = READ_TIMEOUT;
+                serialPort.DtrEnable = true;
                 serialPort.Open();
+                MessageBox.Show(getConnectionInfo(), "Connection Info");
             }
             catch (Exception e)
             {
@@ -86,8 +90,8 @@ namespace SerialDataGrab.DataConnection
                 {
                     rawdata += "" + b.ToString() + ", ";
                 }
-                String utf8 = Encoding.UTF8.GetString(buf, 0, buf.Length);
-                MessageBox.Show("Raw bytes received: " + rawdata + "\n\nConverted to UTF8: " + utf8, "Data Received");
+                String utf8 = Encoding.ASCII.GetString(buf, 0, buf.Length);
+                //MessageBox.Show("Raw bytes received: " + rawdata + "\n\nConverted to UTF8: " + utf8, "Data Received");
                 logFile.writeLineToFile("Raw bytes received: " + rawdata);
                 logFile.writeLineToFile("Converted to UTF8:");
                 logFile.writeStringToFile(utf8);
